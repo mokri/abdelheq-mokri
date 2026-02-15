@@ -17,6 +17,7 @@
             --primary-dark: #4f46e5;
             --secondary: #ec4899;
             --accent: #14b8a6;
+            --warning: #f59e0b;
             --dark: #0f172a;
             --darker: #020617;
             --light: #f8fafc;
@@ -24,7 +25,7 @@
             --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
             --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            --gradient-hero: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            --gradient-4: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
         }
 
         html {
@@ -135,7 +136,7 @@
 
         .nav-links {
             display: flex;
-            gap: 2.5rem;
+            gap: 2rem;
             list-style: none;
         }
 
@@ -143,7 +144,7 @@
             color: var(--gray);
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             transition: all 0.3s ease;
             position: relative;
         }
@@ -167,7 +168,7 @@
             width: 100%;
         }
 
-        /* Hero Section */
+        /* Hero Section - Resume Style */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -244,6 +245,33 @@
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--gray);
         }
 
         .hero-cta {
@@ -333,6 +361,311 @@
             font-size: 1.1rem;
             max-width: 600px;
             margin: 0 auto;
+        }
+
+        /* About / Summary Section */
+        .about {
+            background: linear-gradient(180deg, transparent 0%, rgba(15, 23, 42, 0.5) 50%, transparent 100%);
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-card {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 3rem;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-1);
+        }
+
+        .about-text {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: var(--light);
+        }
+
+        .about-text .highlight {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .about-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 12px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .highlight-item .icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .highlight-item span {
+            font-weight: 500;
+        }
+
+        /* Professional Experience Section */
+        .experience {
+            background: rgba(15, 23, 42, 0.3);
+        }
+
+        .experience-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .experience-item {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--gradient-1);
+        }
+
+        .experience-item:hover {
+            border-color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .experience-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--light);
+        }
+
+        .experience-company {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-top: 0.25rem;
+        }
+
+        .experience-date {
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--primary);
+            white-space: nowrap;
+        }
+
+        .experience-description {
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .experience-description li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .experience-description li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        .experience-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            padding: 0.35rem 0.85rem;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: var(--primary);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Startup Attempts Section */
+        .startups {
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.05) 0%, rgba(99, 102, 241, 0.05) 100%);
+        }
+
+        .startups-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            padding: 2rem;
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+        }
+
+        .startups-intro p {
+            color: var(--gray);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .startups-intro .quote {
+            font-style: italic;
+            color: var(--secondary);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .startups-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .startup-card {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .startup-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-4);
+        }
+
+        .startup-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary);
+            box-shadow: 0 20px 60px rgba(236, 72, 153, 0.2);
+        }
+
+        .startup-year {
+            display: inline-block;
+            background: var(--gradient-4);
+            padding: 0.25rem 0.85rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .startup-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--light);
+        }
+
+        .startup-type {
+            font-size: 0.85rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .startup-description {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .startup-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .status-rejected {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #ef4444;
+        }
+
+        .status-pivoted {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            color: #f59e0b;
+        }
+
+        .status-built {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            color: #22c55e;
+        }
+
+        .startup-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
         }
 
         /* Journey Timeline Section */
@@ -533,6 +866,60 @@
             font-family: 'JetBrains Mono', monospace;
         }
 
+        /* Education Section */
+        .education {
+            background: linear-gradient(135deg, rgba(20, 184, 166, 0.05) 0%, rgba(99, 102, 241, 0.05) 100%);
+        }
+
+        .education-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .education-item {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .education-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--gradient-3);
+        }
+
+        .education-item:hover {
+            border-color: var(--accent);
+            transform: translateX(5px);
+        }
+
+        .education-degree {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-school {
+            font-size: 1.1rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-date {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
         /* Skills Section */
         .skills-container {
             max-width: 1200px;
@@ -688,25 +1075,6 @@
             font-size: 0.9rem;
         }
 
-        /* Typing Animation */
-        .typing-text {
-            display: inline-block;
-            overflow: hidden;
-            border-right: 3px solid var(--primary);
-            white-space: nowrap;
-            animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
-        }
-
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
-
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: var(--primary) }
-        }
-
         /* Particles */
         .particles {
             position: fixed;
@@ -767,8 +1135,17 @@
             }
 
             .achievement-grid,
-            .focus-grid {
+            .focus-grid,
+            .startups-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .hero-stats {
+                gap: 1.5rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
             }
         }
 
@@ -815,6 +1192,15 @@
         .code-block .function {
             color: var(--primary);
         }
+
+        /* Section Divider */
+        .section-divider {
+            width: 100px;
+            height: 4px;
+            background: var(--gradient-1);
+            margin: 0 auto 2rem;
+            border-radius: 2px;
+        }
     </style>
 </head>
 <body>
@@ -832,10 +1218,12 @@
     <nav>
         <div class="logo">AM</div>
         <ul class="nav-links">
-            <li><a href="#journey">Journey</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#startups">Startups</a></li>
             <li><a href="#achievements">Achievements</a></li>
             <li><a href="#skills">Skills</a></li>
-            <li><a href="#focus">Current Focus</a></li>
+            <li><a href="#focus">Focus</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -852,9 +1240,27 @@
                 Building solutions to real problems since 2014. From AI agents to agricultural robotics, 
                 I keep building, learning, and iterating—even when ideas fail, get rejected, or don't gain traction.
             </p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">10+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">10</span>
+                    <span class="stat-label">Startup Attempts</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">3x</span>
+                    <span class="stat-label">YC Applicant</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">2</span>
+                    <span class="stat-label">Co-Founded Platforms</span>
+                </div>
+            </div>
             <div class="hero-cta">
-                <a href="#journey" class="btn btn-primary">
-                    <span>Explore My Journey</span>
+                <a href="#experience" class="btn btn-primary">
+                    <span>View Experience</span>
                     <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                     </svg>
@@ -869,102 +1275,320 @@
         </div>
     </section>
 
-    <!-- Journey Timeline Section -->
-    <section class="journey" id="journey">
+    <!-- About / Summary Section -->
+    <section class="about" id="about">
         <div class="section-header">
-            <h2>My <span class="gradient-text">Innovation Journey</span></h2>
-            <p>Over a decade of building solutions to real-world problems</p>
+            <h2>Professional <span class="gradient-text">Summary</span></h2>
+            <div class="section-divider"></div>
         </div>
 
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <span class="timeline-year">2014</span>
-                    <h3>Smoking Cessation Lip Balm</h3>
-                    <p>Developed concept for lip balm with gradual nicotine degradation (1mg to 0mg), offering a path to quit smoking while eliminating nicotine dependency entirely—unlike existing solutions that maintain nicotine dependence.</p>
+        <div class="about-content">
+            <div class="about-card reveal">
+                <p class="about-text">
+                    <span class="highlight">Full Stack Engineer</span> and <span class="highlight">serial innovator</span> with over a decade of experience building solutions to real-world problems. 
+                    My journey began in high school with a passion for solving problems and designing innovative solutions—a mindset that continues to drive me today.
+                    <br><br>
+                    Throughout my career, I've <span class="highlight">co-founded multiple startups</span>, applied to Y Combinator three times, and consistently pushed the boundaries of what's possible with technology. 
+                    From implementing function calling before it existed in ChatGPT, to building speech-to-speech AI agents via phone using Azure and WebSockets, 
+                    I've always found ways to innovate even when the tools didn't exist yet.
+                    <br><br>
+                    My pattern is clear: <span class="highlight">I keep building, learning, and iterating</span>—even when ideas fail, get rejected, or don't gain traction. 
+                    This resilience and persistence define my approach to engineering and entrepreneurship.
+                </p>
+                <div class="about-highlights">
+                    <div class="highlight-item">
+                        <div class="icon">🚀</div>
+                        <span>Startup Founder</span>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="icon">🤖</div>
+                        <span>AI/ML Pioneer</span>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="icon">💡</div>
+                        <span>Problem Solver</span>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="icon">🎯</div>
+                        <span>Product Owner</span>
+                    </div>
                 </div>
-                <div class="timeline-dot"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Experience Section -->
+    <section class="experience" id="experience">
+        <div class="section-header">
+            <h2>Professional <span class="gradient-text">Experience</span></h2>
+            <div class="section-divider"></div>
+        </div>
+
+        <div class="experience-container">
+            <div class="experience-item reveal">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Full Stack Engineer / AI Engineer</div>
+                        <div class="experience-company">Yobi</div>
+                    </div>
+                    <span class="experience-date">2022 - 2023</span>
+                </div>
+                <ul class="experience-description">
+                    <li>Pioneered function calling implementation for ChatGPT before official API support by prompting agents to return structured JSON outputs and building tool execution pipelines</li>
+                    <li>Built speech-to-speech AI agent system for phone calls using Azure Speech-to-Text, deep learning models, and WebSockets for real-time conversations</li>
+                    <li>Developed AI agents that interact with databases using custom tool-calling mechanisms</li>
+                    <li>Implemented real-time communication systems with sub-second latency</li>
+                </ul>
+                <div class="experience-tags">
+                    <span class="tag">ChatGPT API</span>
+                    <span class="tag">Azure Speech</span>
+                    <span class="tag">WebSockets</span>
+                    <span class="tag">AI Agents</span>
+                    <span class="tag">Node.js</span>
+                    <span class="tag">Python</span>
+                </div>
             </div>
 
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <span class="timeline-year">2016</span>
-                    <h3>Forest Fire Detection & Prevention Swarm</h3>
-                    <p>Conceptualized interconnected device swarms for forests capable of fire detection, prediction based on weather conditions, early alerts, and air-to-water mechanisms to limit fire spread.</p>
+            <div class="experience-item reveal">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Product Owner</div>
+                        <div class="experience-company">Tech Company</div>
+                    </div>
+                    <span class="experience-date">2022</span>
                 </div>
-                <div class="timeline-dot"></div>
+                <ul class="experience-description">
+                    <li>Led product development and managed sprint planning for cross-functional teams</li>
+                    <li>Conceived and developed concept for AI-powered Product Owner agent that generates task lists, acceptance criteria, and effort estimates</li>
+                    <li>Applied to Y Combinator with AI Product Owner concept</li>
+                </ul>
+                <div class="experience-tags">
+                    <span class="tag">Agile</span>
+                    <span class="tag">Scrum</span>
+                    <span class="tag">AI Agents</span>
+                    <span class="tag">Product Strategy</span>
+                </div>
             </div>
 
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <span class="timeline-year">2018</span>
-                    <h3>Electricity-Generating Speed Bumps</h3>
-                    <p>Startup Weekend project creating speed bumps that generate electricity through pressure (piezo ignition mechanism). Electricity could power street lights and infrastructure. Extended concept to crowded places for pedestrian energy harvesting.</p>
+            <div class="experience-item reveal">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Co-Founder & CTO</div>
+                        <div class="experience-company">AI Data Apps Platform</div>
+                    </div>
+                    <span class="experience-date">2024</span>
                 </div>
-                <div class="timeline-dot"></div>
+                <ul class="experience-description">
+                    <li>Co-founded platform where users upload CSV/Excel files and receive working applications with built-in ML and interactive analysis</li>
+                    <li>Built AI agent system for automatic data analysis and visualization</li>
+                    <li>Created shareable application infrastructure for non-technical users</li>
+                </ul>
+                <div class="experience-tags">
+                    <span class="tag">AI Agents</span>
+                    <span class="tag">Machine Learning</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">Data Analysis</span>
+                </div>
             </div>
 
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <span class="timeline-year">2019</span>
-                    <h3>Education Platform: Students & Companies</h3>
-                    <p>Built platform connecting companies with students: companies publish practical courses, students receive certifications, top performers get internship opportunities. Applied to university incubator.</p>
+            <div class="experience-item reveal">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Co-Founder</div>
+                        <div class="experience-company">Arabic Document Platform</div>
+                    </div>
+                    <span class="experience-date">2024</span>
                 </div>
-                <div class="timeline-dot"></div>
+                <ul class="experience-description">
+                    <li>Co-founded platform focused on Arabic document parsing and understanding</li>
+                    <li>Participated in hackathon in Saudi Arabia</li>
+                    <li>Addressed gap in Arabic NLP and document AI solutions</li>
+                </ul>
+                <div class="experience-tags">
+                    <span class="tag">NLP</span>
+                    <span class="tag">Arabic</span>
+                    <span class="tag">Document AI</span>
+                    <span class="tag">OCR</span>
+                </div>
             </div>
 
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <span class="timeline-year">2020</span>
-                    <h3>TaskRabbit for Algeria</h3>
-                    <p>Co-founded localized version of TaskRabbit for the Algerian market. Built and hosted the complete application. Faced user acquisition challenges.</p>
+            <div class="experience-item reveal">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Co-Founder</div>
+                        <div class="experience-company">Agentic Real Estate App (Dubai)</div>
+                    </div>
+                    <span class="experience-date">2025</span>
                 </div>
-                <div class="timeline-dot"></div>
+                <ul class="experience-description">
+                    <li>Co-founded startup in Dubai building agentic real estate application</li>
+                    <li>Enabled users to find properties 10x faster and more accurately across all platforms</li>
+                    <li>Implemented appointment booking and 24/7 AI agent access</li>
+                    <li>Received initial acceptance from property managers</li>
+                </ul>
+                <div class="experience-tags">
+                    <span class="tag">AI Agents</span>
+                    <span class="tag">Real Estate Tech</span>
+                    <span class="tag">Full Stack</span>
+                    <span class="tag">Dubai Market</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Startup Attempts Section -->
+    <section class="startups" id="startups">
+        <div class="section-header">
+            <h2>Startup <span class="gradient-text">Attempts</span></h2>
+            <div class="section-divider"></div>
+        </div>
+
+        <div class="startups-intro reveal">
+            <p class="quote">"Throughout all these years, one thing remained constant: I consistently try to build solutions to real problems."</p>
+            <p>Over a decade of entrepreneurship—from innovative concepts to full-fledged platforms. Each attempt taught invaluable lessons about product-market fit, user acquisition, and resilience.</p>
+        </div>
+
+        <div class="startups-grid">
+            <div class="startup-card reveal">
+                <span class="startup-year">2014</span>
+                <h3 class="startup-name">Smoking Cessation Lip Balm</h3>
+                <div class="startup-type">Healthcare Innovation</div>
+                <p class="startup-description">Lip balm with gradual nicotine degradation (1mg → 0.6mg → 0.3mg → 0mg) allowing users to quit smoking while eliminating nicotine dependency entirely—unlike patches and gum that maintain dependence.</p>
+                <span class="startup-status status-rejected">No Response from Investors</span>
+                <div class="startup-tags">
+                    <span class="tech-tag">Healthcare</span>
+                    <span class="tech-tag">Consumer Product</span>
+                </div>
             </div>
 
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <span class="timeline-year">2021</span>
-                    <h3>SportCom – Social App for Athletes</h3>
-                    <p>Created social platform for athletes to find partners, organize matches, and create tournaments. Applied to Y Combinator with this idea.</p>
+            <div class="startup-card reveal">
+                <span class="startup-year">2016</span>
+                <h3 class="startup-name">Forest Fire Detection Swarm</h3>
+                <div class="startup-type">IoT / Climate Tech</div>
+                <p class="startup-description">Swarm of interconnected devices for forests: fire detection, prediction based on weather conditions, early alerts, and air-to-water mechanisms to limit fire spread.</p>
+                <span class="startup-status status-rejected">No Response from Investors</span>
+                <div class="startup-tags">
+                    <span class="tech-tag">IoT</span>
+                    <span class="tech-tag">Climate</span>
+                    <span class="tech-tag">Hardware</span>
                 </div>
-                <div class="timeline-dot"></div>
             </div>
 
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <span class="timeline-year">2022</span>
-                    <h3>Product Owner AI Agent</h3>
-                    <p>After ChatGPT release, conceived AI agent that takes specifications, generates task lists, creates acceptance criteria, estimates effort, and assigns tasks. Applied to Y Combinator.</p>
+            <div class="startup-card reveal">
+                <span class="startup-year">2018</span>
+                <h3 class="startup-name">Electricity-Generating Speed Bumps</h3>
+                <div class="startup-type">Clean Energy</div>
+                <p class="startup-description">Speed bumps generating electricity through piezo ignition mechanism. Could power street lights and infrastructure. Extended concept to pedestrian energy harvesting in crowded places.</p>
+                <span class="startup-status status-pivoted">Startup Weekend - Did Not Win</span>
+                <div class="startup-tags">
+                    <span class="tech-tag">Clean Energy</span>
+                    <span class="tech-tag">Hardware</span>
+                    <span class="tech-tag">Smart City</span>
                 </div>
-                <div class="timeline-dot"></div>
             </div>
 
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <span class="timeline-year">2023</span>
-                    <h3>Parallel Cable Robot for Precision Agriculture</h3>
-                    <p>Built prototype for parallel cables robot designed for precision agriculture. Sought robotics co-founder but faced feasibility challenges.</p>
+            <div class="startup-card reveal">
+                <span class="startup-year">2019</span>
+                <h3 class="startup-name">Education Platform: Students & Companies</h3>
+                <div class="startup-type">EdTech</div>
+                <p class="startup-description">Platform connecting companies with students: companies publish practical courses, students receive certifications, top performers get internship opportunities.</p>
+                <span class="startup-status status-pivoted">University Incubator - Abandoned</span>
+                <div class="startup-tags">
+                    <span class="tech-tag">EdTech</span>
+                    <span class="tech-tag">Marketplace</span>
+                    <span class="tech-tag">B2B</span>
                 </div>
-                <div class="timeline-dot"></div>
             </div>
 
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <span class="timeline-year">2024</span>
-                    <h3>AI Data Apps & Arabic Document Platform</h3>
-                    <p>Co-founded two platforms: (1) AI Data Apps—upload CSV/Excel and get working applications with ML and interactive analysis; (2) Arabic document parsing and understanding platform. Participated in Saudi Arabia hackathon.</p>
+            <div class="startup-card reveal">
+                <span class="startup-year">2020</span>
+                <h3 class="startup-name">TaskRabbit for Algeria</h3>
+                <div class="startup-type">Marketplace</div>
+                <p class="startup-description">Localized version of TaskRabbit for the Algerian market. Built and hosted the complete application. Faced user acquisition challenges in local market.</p>
+                <span class="startup-status status-built">Built & Launched - User Acquisition Failed</span>
+                <div class="startup-tags">
+                    <span class="tech-tag">Marketplace</span>
+                    <span class="tech-tag">Local Market</span>
+                    <span class="tech-tag">Full Stack</span>
                 </div>
-                <div class="timeline-dot"></div>
             </div>
 
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <span class="timeline-year">2025</span>
-                    <h3>Agentic Real Estate App</h3>
-                    <p>Co-founded startup in Dubai building agentic real estate app: find properties 10x faster, search across platforms, book appointments, 24/7 agent access. Received initial acceptance from property managers.</p>
+            <div class="startup-card reveal">
+                <span class="startup-year">2021</span>
+                <h3 class="startup-name">SportCom – Social App for Athletes</h3>
+                <div class="startup-type">Social / Sports Tech</div>
+                <p class="startup-description">Social platform for athletes to find partners, organize matches, create tournaments and challenges. Similar to Meetup but specifically for sports.</p>
+                <span class="startup-status status-rejected">Y Combinator - Rejected</span>
+                <div class="startup-tags">
+                    <span class="tech-tag">Social</span>
+                    <span class="tech-tag">Sports</span>
+                    <span class="tech-tag">Mobile App</span>
                 </div>
-                <div class="timeline-dot"></div>
+            </div>
+
+            <div class="startup-card reveal">
+                <span class="startup-year">2022</span>
+                <h3 class="startup-name">Product Owner AI Agent</h3>
+                <div class="startup-type">AI / Developer Tools</div>
+                <p class="startup-description">AI agent that takes specifications and documentation, generates task lists, creates acceptance criteria, estimates effort, and assigns tasks automatically.</p>
+                <span class="startup-status status-rejected">Y Combinator - Rejected</span>
+                <div class="startup-tags">
+                    <span class="tech-tag">AI Agents</span>
+                    <span class="tech-tag">Productivity</span>
+                    <span class="tech-tag">LLM</span>
+                </div>
+            </div>
+
+            <div class="startup-card reveal">
+                <span class="startup-year">2023</span>
+                <h3 class="startup-name">Parallel Cable Robot for Agriculture</h3>
+                <div class="startup-type">Robotics / AgTech</div>
+                <p class="startup-description">Parallel cables robot for precision agriculture. Built small prototype and sought robotics co-founder. Faced feasibility challenges from experts.</p>
+                <span class="startup-status status-pivoted">Abandoned - No Co-founder</span>
+                <div class="startup-tags">
+                    <span class="tech-tag">Robotics</span>
+                    <span class="tech-tag">Agriculture</span>
+                    <span class="tech-tag">Hardware</span>
+                </div>
+            </div>
+
+            <div class="startup-card reveal">
+                <span class="startup-year">2024</span>
+                <h3 class="startup-name">AI Data Apps Platform</h3>
+                <div class="startup-type">AI / Data</div>
+                <p class="startup-description">Platform where users upload CSV/Excel files and receive working applications with built-in ML and interactive analysis—all powered by AI agents.</p>
+                <span class="startup-status status-built">Built & Running</span>
+                <div class="startup-tags">
+                    <span class="tech-tag">AI Agents</span>
+                    <span class="tech-tag">Data Analysis</span>
+                    <span class="tech-tag">ML</span>
+                </div>
+            </div>
+
+            <div class="startup-card reveal">
+                <span class="startup-year">2024</span>
+                <h3 class="startup-name">Arabic Document Platform</h3>
+                <div class="startup-type">AI / NLP</div>
+                <p class="startup-description">Platform for Arabic document parsing and understanding. Participated in hackathon in Saudi Arabia, addressing the gap in Arabic NLP solutions.</p>
+                <span class="startup-status status-pivoted">Hackathon - Did Not Win</span>
+                <div class="startup-tags">
+                    <span class="tech-tag">NLP</span>
+                    <span class="tech-tag">Arabic</span>
+                    <span class="tech-tag">Document AI</span>
+                </div>
+            </div>
+
+            <div class="startup-card reveal">
+                <span class="startup-year">2025</span>
+                <h3 class="startup-name">Agentic Real Estate App</h3>
+                <div class="startup-type">PropTech / AI</div>
+                <p class="startup-description">Agentic real estate app for Dubai market: find properties 10x faster, search across platforms, book appointments, 24/7 AI agent. Received property manager acceptance.</p>
+                <span class="startup-status status-pivoted">Dropped - Co-founders Not Committed</span>
+                <div class="startup-tags">
+                    <span class="tech-tag">AI Agents</span>
+                    <span class="tech-tag">Real Estate</span>
+                    <span class="tech-tag">Dubai</span>
+                </div>
             </div>
         </div>
     </section>
@@ -973,6 +1597,7 @@
     <section class="achievements" id="achievements">
         <div class="section-header">
             <h2>Technical <span class="gradient-text">Achievements</span></h2>
+            <div class="section-divider"></div>
             <p>Pioneering solutions before they became mainstream</p>
         </div>
 
@@ -1032,11 +1657,33 @@
         </div>
     </section>
 
+    <!-- Education Section -->
+    <section class="education" id="education">
+        <div class="section-header">
+            <h2>Education & <span class="gradient-text">Background</span></h2>
+            <div class="section-divider"></div>
+        </div>
+
+        <div class="education-container">
+            <div class="education-item reveal">
+                <div class="education-degree">Computer Science / Software Engineering</div>
+                <div class="education-school">University Education</div>
+                <div class="education-date">Algeria</div>
+            </div>
+
+            <div class="education-item reveal">
+                <div class="education-degree">Self-Taught AI/ML Practitioner</div>
+                <div class="education-school">Continuous Learning</div>
+                <div class="education-date">2014 - Present</div>
+            </div>
+        </div>
+    </section>
+
     <!-- Skills Section -->
     <section class="skills" id="skills">
         <div class="section-header">
             <h2>Technical <span class="gradient-text">Skills</span></h2>
-            <p>Technologies and tools I work with</p>
+            <div class="section-divider"></div>
         </div>
 
         <div class="skills-container">
@@ -1111,6 +1758,7 @@
     <section class="focus-section" id="focus">
         <div class="section-header">
             <h2>2026 <span class="gradient-text">Current Focus</span></h2>
+            <div class="section-divider"></div>
             <p>Exploring new frontiers in AI and automation</p>
         </div>
 
@@ -1137,8 +1785,11 @@
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
-        <div class="contact-content">
+        <div class="section-header">
             <h2>Let's Build Something <span class="gradient-text">Together</span></h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="contact-content">
             <p>Always open to discussing new opportunities, innovative ideas, or potential collaborations. The pattern is clear: I keep building, learning, and iterating.</p>
             <div class="contact-links">
                 <a href="mailto:abdelheq.mokri@example.com" class="contact-link">
@@ -1229,25 +1880,36 @@
             }
         });
 
+        // Counter animation for stats
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = counter.innerText;
+                const isNumber = !isNaN(parseInt(target));
+                if (isNumber) {
+                    const targetNum = parseInt(target);
+                    let current = 0;
+                    const increment = targetNum / 50;
+                    const suffix = target.replace(/[0-9]/g, '');
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= targetNum) {
+                            counter.innerText = target;
+                            clearInterval(timer);
+                        } else {
+                            counter.innerText = Math.floor(current) + suffix;
+                        }
+                    }, 30);
+                }
+            });
+        }
+
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
             createParticles();
             initScrollAnimations();
+            animateCounters();
         });
-
-        // Typing effect for hero subtitle
-        function typeWriter(element, text, speed = 50) {
-            let i = 0;
-            element.innerHTML = '';
-            function type() {
-                if (i < text.length) {
-                    element.innerHTML += text.charAt(i);
-                    i++;
-                    setTimeout(type, speed);
-                }
-            }
-            type();
-        }
     </script>
 </body>
 </html>
