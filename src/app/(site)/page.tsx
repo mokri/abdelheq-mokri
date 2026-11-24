@@ -1,6 +1,7 @@
 import {
   About,
   Archive,
+  Awards,
   Certifications,
   Contact,
   ExperienceSection,
@@ -25,6 +26,7 @@ export default async function HomePage() {
       <ExperienceSection experiences={data.experiences} />
       <Flagship flagship={data.flagship} />
       <Research publications={data.publications} profile={data.profile} />
+      <Awards awards={data.awards} />
       <Startups startups={data.startups} profile={data.profile} />
       <Skills skillGroups={data.skillGroups} />
       <Certifications certifications={data.certifications} />

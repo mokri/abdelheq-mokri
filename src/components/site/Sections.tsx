@@ -119,13 +119,15 @@ export async function About({ profile }: Pick<HomeData, "profile">) {
   );
 }
 
-export function ExperienceSection({ experiences }: Pick<HomeData, "experiences">) {
+export async function ExperienceSection({ experiences }: Pick<HomeData, "experiences">) {
+  // Descriptions are Markdown (bullets with "- "); plain paragraphs still render as before.
+  const descriptions = await Promise.all(experiences.map((e) => renderMarkdown(e.description)));
   return (
     <section id="experience">
       <div className="section-tag">Career</div>
       <h2 className="section-title">Experience</h2>
       <div className="exp-list">
-        {experiences.map((e) => (
+        {experiences.map((e, i) => (
           <div key={e.id} className="exp-item">
             <div className="exp-meta">
               <div className="exp-company">{e.company}</div>
@@ -134,7 +136,7 @@ export function ExperienceSection({ experiences }: Pick<HomeData, "experiences">
             </div>
             <div>
               <div className="exp-role">{e.role}</div>
-              <div className="exp-desc">{e.description}</div>
+              <div className="exp-desc" dangerouslySetInnerHTML={{ __html: descriptions[i] }} />
               <div className="exp-tags">
                 {e.tags.map((t) => (
                   <span key={t} className="exp-tag">
@@ -318,6 +320,45 @@ export function Skills({ skillGroups }: Pick<HomeData, "skillGroups">) {
             ))}
           </div>
         ))}
+      </div>
+    </section>
+  );
+}
+
+export function Awards({ awards }: Pick<HomeData, "awards">) {
+  if (awards.length === 0) return null;
+  return (
+    <section id="awards">
+      <div className="section-tag">Recognition</div>
+      <h2 className="section-title">Awards &amp; Achievements</h2>
+      <div className="award-list">
+        {awards.map((a) => {
+          const body = (
+            <>
+              <div className="award-icon" aria-hidden>
+                {a.icon || "🏆"}
+              </div>
+              <div className="award-body">
+                <div className="award-top">
+                  <span className="award-issuer">{a.issuer}</span>
+                  {a.year && <span className="award-year">{a.year}</span>}
+                </div>
+                <div className="award-title">{a.title}</div>
+                {a.description && <div className="award-desc">{a.description}</div>}
+                {a.url && <span className="award-link">Read more →</span>}
+              </div>
+            </>
+          );
+          return a.url ? (
+            <a key={a.id} href={a.url} target="_blank" rel="noopener noreferrer" className="award-card">
+              {body}
+            </a>
+          ) : (
+            <div key={a.id} className="award-card">
+              {body}
+            </div>
+          );
+        })}
       </div>
     </section>
   );

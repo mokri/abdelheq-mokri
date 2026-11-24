@@ -51,6 +51,7 @@ export type EntityKey =
   | "projects"
   | "publications"
   | "certifications"
+  | "awards"
   | "startups"
   | "skill_groups"
   | "skills";
@@ -88,7 +89,13 @@ export const ENTITIES: Record<EntityKey, EntityConfig> = {
       { name: "role", label: "Role / title", type: "text", required: true, half: true },
       { name: "dates", label: "Dates", type: "text", placeholder: "Oct 2024 – Present", half: true },
       { name: "employment_type", label: "Type / location", type: "text", placeholder: "Full-time · Remote", half: true },
-      { name: "description", label: "Description", type: "textarea", required: true },
+      {
+        name: "description",
+        label: "Description",
+        type: "markdown-short",
+        required: true,
+        help: "Markdown: start lines with “- ” for bullet points; **bold** supported.",
+      },
       { name: "tags", label: "Tags", type: "tags" },
       { name: "published", label: "Published", type: "checkbox" },
     ],
@@ -170,6 +177,25 @@ export const ENTITIES: Record<EntityKey, EntityConfig> = {
       { name: "published", label: "Published", type: "checkbox" },
     ],
     defaults: { title: "", issuer: "", date_label: "", description: "", pdf_url: null, published: true },
+  },
+
+  awards: {
+    key: "awards",
+    label: "Awards",
+    singular: "Award",
+    description: "Awards & achievements section (after Research).",
+    titleField: "title",
+    subtitleFields: ["issuer", "year"],
+    fields: [
+      { name: "title", label: "Title", type: "text", required: true },
+      { name: "issuer", label: "Issuer / organisation", type: "text", half: true },
+      { name: "year", label: "Year", type: "text", placeholder: "2026", half: true },
+      { name: "icon", label: "Emoji", type: "text", placeholder: "🏆", half: true },
+      { name: "url", label: "Link", type: "url", placeholder: "https://…", half: true },
+      { name: "description", label: "Description", type: "textarea" },
+      { name: "published", label: "Published", type: "checkbox" },
+    ],
+    defaults: { title: "", issuer: "", year: "", icon: "🏆", description: "", url: null, published: true },
   },
 
   startups: {

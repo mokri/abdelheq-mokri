@@ -80,6 +80,16 @@ export type Certification = Base & {
   pdf_url: string | null;
 };
 
+export type Award = Base & {
+  title: string;
+  issuer: string;
+  year: string;
+  /** Emoji shown on the card. */
+  icon: string;
+  description: string;
+  url: string | null;
+};
+
 export type Startup = Base & {
   year: string;
   emoji: string;
@@ -127,4 +137,5 @@ export type HomeData = {
   startups: Startup[];
   skillGroups: (SkillGroup & { skills: Skill[] })[];
   certifications: Certification[];
+  awards: Award[];
 };

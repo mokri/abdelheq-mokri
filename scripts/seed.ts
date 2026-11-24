@@ -10,6 +10,7 @@
  */
 import { createClient } from "@supabase/supabase-js";
 import {
+  seedAwards,
   seedCertifications,
   seedExperiences,
   seedPosts,
@@ -46,6 +47,7 @@ async function seedContent() {
   await upsert("projects", seedProjects);
   await upsert("publications", seedPublications);
   await upsert("certifications", seedCertifications);
+  await upsert("awards", seedAwards);
   await upsert("startups", seedStartups);
   await upsert("skill_groups", seedSkillGroups);
   await upsert("skills", seedSkills);

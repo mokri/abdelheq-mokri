@@ -7,6 +7,7 @@
  *     directly so the site still works locally / before the DB is set up.
  */
 import type {
+  Award,
   Certification,
   Experience,
   Post,
@@ -96,12 +97,31 @@ export const seedExperiences: Experience[] = [
     dates: "Oct 2024 – Present",
     employment_type: "Full-time · Remote",
     role: "Senior AI Engineer (Lead I / Data Scientist)",
-    description:
-      "Architecting enterprise-grade agentic AI systems on GCP and AWS. Leading the DataMap Co-Pilot (Google ADK), CodeCrafter legacy modernization pipeline, and Conversational AI for a global payments client. Collaborated with Stanford AI Lab on NL2SQL research. Built UST AI Launchpad — internal platform for model fine-tuning, agent sandboxing, and responsible AI operationalization. Projected $250K annual savings through workflow automation.",
-    tags: ["Google ADK", "AWS Bedrock", "LangGraph", "NL2SQL", "GCP / BigQuery", "RAG", "Multi-Agent Systems"],
+    description: `- Run delivery on an **AI-driven development lifecycle (AI-DLC)**: agents migrate legacy .NET 4 → .NET 8 and COBOL monoliths to React + Java Spring Boot, generating Nx monorepos from specs that land ~95% functional — **70% faster delivery at 60% of the cost**.
+- Reimagining a **NextGen Reinsurance Platform** spec-first with SpecKit; the MVP is already working.
+- Architected and lead **BSA DataMap**, agentic data profiling into BigQuery that saves **2 FTEs (~$250K/year)**.
+- Architect and lead the **ETL Test Agent**, which automates the design, generation, execution and tracking of data-validation tests for ETL interfaces, with results checked by LLM-as-a-Judge — projected to cut manual testing effort by **~70%**.
+- Architecting and leading **Contracts & Booklets**, agentic automation of IBC's manual contract and booklet creation from Front Office System (FOS) and Product Configurator (PC) data — projected to take turnaround from days to hours (**~80% less manual effort**).
+- Delivered **RegView**, natural-language search over regulatory documents, and a **RAG-powered RFI/RFP engine** that cut proposal time by **60%**.
+- Collaborating with **Dr. Tatsunori Hashimoto (Stanford AI Lab)** on Text-to-SQL research (ongoing).`,
+    tags: ["Agentic AI", "AI-DLC", "SpecKit", "Google ADK", "LangGraph", "RAG", "LLM-as-a-Judge", "GCP / BigQuery", "AWS Bedrock", "Text-to-SQL"],
+  },
+  {
+    ...base(1, 5),
+    sort_order: 2,
+    company: "Abou Bekr Belkaid University",
+    dates: "Feb 2023 – Present",
+    employment_type: "PhD research · Tlemcen",
+    role: "PhD Researcher — Privacy-Preserving AI",
+    description: `- Lead doctoral research at the intersection of **privacy-preserving deep learning, differential privacy (DP) and federated learning (FL)** — building trustworthy medical AI that keeps diagnostic performance while protecting patient data.
+- Designed and evaluated a privacy-preserving framework for **diabetic retinopathy classification**, combining state-of-the-art vision architectures, DP and federated optimization across distributed medical-imaging datasets.
+- Benchmarked large vision foundation models (**EVA-02 Giant, SwinV2-Huge**) as frozen feature extractors with downstream DenseNet classifiers on four retinal datasets: APTOS, IDRiD, Messidor-1200 and Messidor-2.
+- Study the **privacy–utility trade-off**: how privacy mechanisms affect accuracy, generalization and robustness in centralized vs. distributed training.`,
+    tags: ["Differential Privacy", "Federated Learning", "Medical AI", "EVA-02", "SwinV2", "DenseNet", "PyTorch"],
   },
   {
     ...base(1, 2),
+    sort_order: 3,
     company: "Yobi",
     dates: "Jun 2023 – Oct 2024",
     employment_type: "Full-time · Remote (CA)",
@@ -112,6 +132,7 @@ export const seedExperiences: Experience[] = [
   },
   {
     ...base(1, 3),
+    sort_order: 4,
     company: "LemsaInnov",
     dates: "Oct 2022 – Jun 2023",
     employment_type: "Full-time · Algeria",
@@ -122,6 +143,7 @@ export const seedExperiences: Experience[] = [
   },
   {
     ...base(1, 4),
+    sort_order: 5,
     company: "Freelance",
     dates: "2018 – 2022",
     employment_type: "Independent · Algeria",
@@ -294,6 +316,47 @@ export const seedStartups: Startup[] = (
   description,
   note,
 }));
+
+export const seedAwards: Award[] = [
+  {
+    ...base(9, 1),
+    icon: "🥈",
+    title: "2nd Place — Fix It Forward with Claude",
+    issuer: "UST D3",
+    year: "2026",
+    description: "Placed second in UST D3's “Fix It Forward with Claude” challenge.",
+    url: "https://www.d3.ust.com/fix-it-forward-with-claude",
+  },
+  {
+    ...base(9, 2),
+    icon: "📰",
+    title: "Featured in Handprints of UST — “The View from Above”",
+    issuer: "UST",
+    year: "2026",
+    description:
+      "Profiled in Handprints of UST, a collection of associate stories built around the five tenets of the UST Handprint framework — from the farms of Tlemcen to AI research with the Stanford AI Lab.",
+    url: "https://www.ust.com/en/handprints-of-ust/the-view-from-above",
+  },
+  {
+    ...base(9, 3),
+    icon: "🏆",
+    title: "Best Presentation — Deep Learning & AI Safety",
+    issuer: "University of Tlemcen · Faculty of Sciences",
+    year: "2025",
+    description:
+      "Won best presentation in the Computer Science department, then at the Faculty of Sciences — representing the faculty across the University of Tlemcen.",
+    url: null,
+  },
+  {
+    ...base(9, 4),
+    icon: "🏅",
+    title: "Best Poster Presentation",
+    issuer: "University of Tlemcen · Computer Science Department",
+    year: "2024",
+    description: "Represented the Computer Science department in the finals.",
+    url: null,
+  },
+];
 
 export const seedSkillGroups: SkillGroup[] = [
   { ...base(5, 1), title: "AI & Research" },

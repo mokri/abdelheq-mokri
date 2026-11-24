@@ -1,6 +1,7 @@
 import "server-only";
 import { cache } from "react";
 import {
+  seedAwards,
   seedCertifications,
   seedExperiences,
   seedPosts,
@@ -14,6 +15,7 @@ import {
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { createSupabasePublicClient } from "@/lib/supabase/server";
 import type {
+  Award,
   Certification,
   Experience,
   HomeData,
@@ -37,6 +39,7 @@ function assemble(parts: {
   skillGroups: SkillGroup[];
   skills: Skill[];
   certifications: Certification[];
+  awards: Award[];
 }): HomeData {
   const projects = parts.projects.filter((p) => p.published).sort(bySort);
   return {
@@ -57,6 +60,7 @@ function assemble(parts: {
         skills: parts.skills.filter((s) => s.published && s.group_id === g.id).sort(bySort),
       })),
     certifications: parts.certifications.filter((c) => c.published).sort(bySort),
+    awards: parts.awards.filter((a) => a.published).sort(bySort),
   };
 }
 
@@ -71,11 +75,12 @@ export const getHomeData = cache(async (): Promise<HomeData> => {
       skillGroups: seedSkillGroups,
       skills: seedSkills,
       certifications: seedCertifications,
+      awards: seedAwards,
     });
   }
 
   const db = createSupabasePublicClient();
-  const [profile, experiences, projects, publications, startups, skillGroups, skills, certifications] =
+  const [profile, experiences, projects, publications, startups, skillGroups, skills, certifications, awards] =
     await Promise.all([
       db.from("profile").select("*").eq("id", 1).maybeSingle(),
       db.from("experiences").select("*"),
@@ -85,9 +90,10 @@ export const getHomeData = cache(async (): Promise<HomeData> => {
       db.from("skill_groups").select("*"),
       db.from("skills").select("*"),
       db.from("certifications").select("*"),
+      db.from("awards").select("*"),
     ]);
 
-  const firstError = [profile, experiences, projects, publications, startups, skillGroups, skills, certifications].find(
+  const firstError = [profile, experiences, projects, publications, startups, skillGroups, skills, certifications, awards].find(
     (r) => r.error,
   )?.error;
   if (firstError) throw new Error(`Failed to load portfolio data: ${firstError.message}`);
@@ -101,6 +107,7 @@ export const getHomeData = cache(async (): Promise<HomeData> => {
     skillGroups: skillGroups.data as SkillGroup[],
     skills: skills.data as Skill[],
     certifications: certifications.data as Certification[],
+    awards: awards.data as Award[],
   });
 });
 
