@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Fragment } from "react";
 import { renderInlineMarkdown, renderMarkdown } from "@/lib/markdown";
 import type { HomeData, Post } from "@/lib/types";
-import { formatDate } from "@/lib/utils";
+import { formatDate, resumeLinkProps } from "@/lib/utils";
 import { ProjectStrip } from "./ProjectStrip";
 
 const pad2 = (n: number) => String(n).padStart(2, "0");
@@ -34,6 +34,11 @@ export function Hero({ profile }: Pick<HomeData, "profile">) {
           <a href="#contact" className="btn btn-secondary">
             Get in Touch
           </a>
+          {profile.resume_url && (
+            <a {...resumeLinkProps(profile.resume_url, `${profile.name_first} ${profile.name_last}`)} className="btn btn-secondary">
+              Download CV ↓
+            </a>
+          )}
         </div>
         <div className="hero-stats">
           {profile.hero_stats.map((s) => (
@@ -444,6 +449,13 @@ export function Contact({ profile }: Pick<HomeData, "profile">) {
       </div>
       <div className="contact-sub">{profile.contact_sub}</div>
       <div className="contact-cards">
+        {profile.resume_url && (
+          <a {...resumeLinkProps(profile.resume_url, `${profile.name_first} ${profile.name_last}`)} className="contact-card">
+            <div className="contact-icon">📄</div>
+            <div className="contact-label">Resume</div>
+            <div className="contact-value">Download PDF ↓</div>
+          </a>
+        )}
         {profile.contact_links.map((c) => {
           const external = !c.href.startsWith("mailto:");
           return (

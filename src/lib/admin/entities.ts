@@ -238,6 +238,14 @@ export const PROFILE_FIELDS: Field[] = [
   { name: "name_last", label: "Last name", type: "text", required: true, half: true },
   { name: "initials", label: "Initials (logo / avatar)", type: "text", half: true },
   { name: "avatar_url", label: "Avatar", type: "image", folder: "profile", half: true },
+  {
+    name: "resume_url",
+    label: "Resume (PDF)",
+    type: "file",
+    folder: "resume",
+    accept: "application/pdf",
+    help: "Upload a new PDF to replace the one visitors download (hero, nav and contact). Clear it to hide the download buttons.",
+  },
   { name: "hero_label", label: "Hero label", type: "text" },
   { name: "typewriter_lines", label: "Typewriter lines (max 4)", type: "tags", help: "Press Enter after each line." },
   {

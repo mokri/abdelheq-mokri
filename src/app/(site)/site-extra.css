@@ -5,9 +5,16 @@
 
 /* Room for the extra "Blog" link in the mobile menu */
 @media (max-width: 768px) {
-  #nav-check:checked ~ nav .nav-links { max-height: 640px; }
+  #nav-check:checked ~ nav .nav-links { max-height: 700px; }
 }
 .nav-links a.nav-blog { color: var(--amber); }
+.nav-links a.nav-cv { color: var(--cyan); }
+/* Between the mobile breakpoint and wide desktops, tighten the nav so every link + the theme button fit */
+@media (min-width: 769px) and (max-width: 1180px) {
+  .nav-links { gap: 1.1rem; }
+  .nav-links a { font-size: 0.66rem; letter-spacing: 0.05em; }
+  .nav-actions { gap: 0.6rem; margin-left: 0.8rem; }
+}
 
 /* Touch devices: no custom cursor */
 @media (hover: none) {
