@@ -79,6 +79,7 @@ Currently pursuing a PhD in AI while working full-time — because curiosity doe
     { icon: "🐦", label: "Twitter / X", value: "@abdelhakmokri", href: "https://twitter.com/abdelhakmokri" },
   ],
   avatar_url: null,
+  resume_url: "/resume/Abdelheq-Mokri-Resume.pdf",
   seo_title: "Abdelheq Mokri — AI Engineer & Researcher",
   seo_description:
     "Senior AI Engineer at UST and PhD researcher building agentic AI systems, NL2SQL agents, and privacy-preserving deep learning.",

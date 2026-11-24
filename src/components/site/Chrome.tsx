@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Profile } from "@/lib/types";
+import { resumeLinkProps } from "@/lib/utils";
 import { Cursor } from "./Cursor";
 import { NavCloser } from "./NavCloser";
 import { ThemeToggle } from "./ThemeToggle";
@@ -37,6 +38,13 @@ export function SiteHeader({ profile }: { profile: Profile }) {
               Blog
             </Link>
           </li>
+          {profile.resume_url && (
+            <li>
+              <a {...resumeLinkProps(profile.resume_url, `${profile.name_first} ${profile.name_last}`)} className="nav-cv">
+                CV ↓
+              </a>
+            </li>
+          )}
         </ul>
         <div className="nav-actions">
           <ThemeToggle />

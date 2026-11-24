@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "seed": "tsx --env-file=.env.local scripts/seed.ts",
-    "clean:appledouble": "find . -name '._*' -not -path './node_modules/*' -delete"
+    "clean:appledouble": "find . -name '._*' -not -path './node_modules/*' -delete",
+    "resume:pdf": "\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless=new --disable-gpu --no-pdf-header-footer --virtual-time-budget=10000 --print-to-pdf=public/resume/Abdelheq-Mokri-Resume.pdf \"file://$PWD/resume/resume.html\""
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",

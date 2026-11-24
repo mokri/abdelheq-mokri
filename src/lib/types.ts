@@ -21,6 +21,8 @@ export type Profile = {
   contact_sub: string;
   contact_links: ContactLink[];
   avatar_url: string | null;
+  /** Downloadable CV (Supabase Storage URL or a /public path). */
+  resume_url: string | null;
   seo_title: string;
   seo_description: string;
 };
